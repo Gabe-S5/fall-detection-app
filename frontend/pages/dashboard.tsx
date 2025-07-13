@@ -103,10 +103,10 @@ export default function Dashboard() {
       </div>
 
       {incidentList.length > 0 && (
-        <div style={{ marginTop: 40 }}>
-          <h3>Incidents:</h3>
+        <div style={{ marginTop: 25 }}>
+          <h2 style={{ marginBottom: 0 }}>Incidents:</h2>
           {incidentList.map((incident) => (
-            <div key={incident.id} style={{ borderBottom: "1px solic #ccc", padding: 10 }}>
+            <div key={incident.id} style={{ borderBottom: "1px solic #ccc", padding: 8, paddingTop: 2 }}>
               <p>
                 <strong>Type: </strong>
                 {incident.type}

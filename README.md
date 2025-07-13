@@ -13,7 +13,7 @@ TypeScript, and ability to work with the tools we use at Fallyx.
 
 ```bash
 # Clone repo
-git clone <url-here>
+git clone https://github.com/Gabe-S5/fall-detection-app.git
 cd fall-detection-app
 
 # Install dependencies for frontend and backend separately
@@ -61,3 +61,17 @@ cd backend
 npm run test
 ```
 - Open http://localhost:3000 to see the app
+
+## App Preview
+
+---
+
+### Login Page
+![login screenshot](./public/login_screenshot.png)
+
+---
+
+### Dashboard Page
+![dashboard screenshot](./public/dashboard_screenshot.png)
+
+---

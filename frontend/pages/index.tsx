@@ -45,7 +45,7 @@ export default function LoginPage() {
           required
           style={{ width: "100%", padding: 8, marginBottom: 12 }}
         ></input>
-        <button type="submit" style={{ width: "100%", padding: 8 }}>
+        <button type="submit" style={{ width: "20%", padding: 8 }}>
           Login
         </button>
       </form>
