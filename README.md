@@ -62,6 +62,11 @@ npm run test
 ```
 - Open http://localhost:3000 to see the app
 
+## Missing Implementations / Notes
+- OpenAI implementation will always fail due to 'quota limits'. Requires subscription/membership.
+- Database only tested locally through pgAdmin
+- Currently has no way to delete incidents
+
 ## App Preview
 
 ---
