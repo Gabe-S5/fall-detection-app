@@ -55,7 +55,7 @@ npm run dev
 cd frontend
 npm run dev
 ```
-- Run tests
+- Run tests (sequentially)
 ```bash
 cd backend
 npm run test
