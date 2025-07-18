@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { userLogin } from "../api/user";
+import { signInWithEmailAndPassword, User } from "firebase/auth";
 import { auth } from "../firebase/clientApp";
 
 export default function LoginPage() {
@@ -14,7 +15,12 @@ export default function LoginPage() {
     setError("");
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      const token = await userCredential.user.getIdToken();
+
+      const userData = await userLogin(token, { email: email });
+      localStorage.setItem("user", JSON.stringify(userData));
       router.push("/dashboard");
     } catch (err: unknown) {
       if (err instanceof Error) {

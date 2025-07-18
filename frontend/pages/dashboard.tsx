@@ -5,14 +5,6 @@ import { auth } from "../firebase/clientApp";
 import { getIdToken } from "firebase/auth";
 import { getIncidents, createIncident, summarizeIncident } from "../api/incidents";
 
-interface Incident {
-  id: number;
-  type: string;
-  description: string;
-  summary?: string;
-  createdAt: string;
-}
-
 export default function Dashboard() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
