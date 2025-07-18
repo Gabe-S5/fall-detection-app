@@ -2,7 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/db";
 
 export class Incident extends Model {
-  public id!: number;
+  public id!: string;
   public userId!: string;
   public type!: string;
   public description!: string;
@@ -14,7 +14,7 @@ export class Incident extends Model {
 
 Incident.init(
   {
-    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
     userId: { type: DataTypes.STRING, allowNull: false },
     type: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.TEXT, allowNull: false },

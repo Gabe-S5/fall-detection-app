@@ -11,7 +11,7 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
 
   try {
     const decodedToken = await verifyToken(token);
-    (req as any).user = decodedToken;
+    (req as any).user = { uid: decodedToken.uid };
     next();
   } catch (err) {
     return res.status(401).json({ message: "Invalid token" });

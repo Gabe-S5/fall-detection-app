@@ -6,6 +6,7 @@ export const createIncident = async (req: Request, res: Response) => {
   try {
     const { type, description } = req.body;
     const userId = (req as any).user.uid;
+
     if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
     const incident = await Incident.create({ userId, type, description });
@@ -32,7 +33,8 @@ export const getIncidents = async (req: Request, res: Response) => {
 export const summarizeIncident = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const incident = await Incident.findByPk(id);
+    const userId = (req as any).user.uid;
+    const incident = await Incident.findOne({ where: { id, userId } });
     if (!incident) return res.status(404).json({ message: "Incident not found" });
 
     if (!incident.description) return res.status(400).json({ message: "Incident description is required" });
@@ -68,7 +70,7 @@ export const summarizeIncident = async (req: Request, res: Response) => {
 
     incident.summary = summary;
     await incident.save();
-    res.json({ summary });
+    res.json(incident);
   } catch (error) {
     console.error("Sequelize error in summarizeIncident:", error);
     res.status(500).json({ error: "Server error" });
